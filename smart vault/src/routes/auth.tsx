@@ -187,8 +187,8 @@ function LoginForm({ redirect }: { redirect?: string }) {
     }
     setBusy(true);
     const { error } = await supabase.auth.signInWithPassword(parsed.data);
-    setBusy(false);
-   if (error) {
+setBusy(false);
+if (error) {
   toast.error("Couldn't create account", { description: error.message });
   return;
 }

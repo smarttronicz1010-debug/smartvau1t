@@ -200,10 +200,12 @@ toast.success("Account created", {
 });
 
 navigate({
-  to: "/auth",
-  search: { mode: "login" },
+  to: redirect ?? "/vault",
+  replace: true,
 });
-  return (
+};
+
+return (
     <div className="rounded-2xl border bg-card p-6 shadow-card">
       <h1 className="text-xl font-semibold tracking-tight">Welcome back</h1>
       <p className="mt-1 text-sm text-muted-foreground">Sign in to your vault.</p>

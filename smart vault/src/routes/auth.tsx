@@ -195,8 +195,8 @@ if (error) {
   return;
 }
 
-toast.success("Account created", {
-  description: "Check your email to confirm your account.",
+toast.success("Login successful", {
+  description: "Welcome back to SmartVault.",
 });
 
 navigate({

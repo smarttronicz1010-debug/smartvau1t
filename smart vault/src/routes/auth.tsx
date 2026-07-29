@@ -130,6 +130,7 @@ function GoogleButton({ label }: { label: string }) {
           description: error.message,
         });
         setBusy(false);
+        return;
       }
     } catch (e) {
       toast.error("Google sign in failed", {

@@ -73,7 +73,7 @@ export async function restoreFile(id: string) {
 
 export async function permanentlyDeleteFile(row: FileRow) {
   if (row.storage_path) {
-    await supabase.storage.from("vault").remove([row.storage_path]);
+    const { data, error } = await supabase.storage.from("vault").download(row.storage_path);
   }
   const { error } = await supabase.from("files").delete().eq("id", row.id);
   if (error) throw error;

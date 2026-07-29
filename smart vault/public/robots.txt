@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /vault
+Disallow: /bin
+Disallow: /settings
+Disallow: /upload
+Disallow: /reset-password

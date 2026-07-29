@@ -188,14 +188,19 @@ function LoginForm({ redirect }: { redirect?: string }) {
     setBusy(true);
     const { error } = await supabase.auth.signInWithPassword(parsed.data);
     setBusy(false);
-    if (error) {
-      toast.error("Couldn't sign in", { description: error.message });
-      return;
-    }
-    toast.success("Welcome back");
-    navigate({ to: redirect ?? "/vault", replace: true });
-  };
+   if (error) {
+  toast.error("Couldn't create account", { description: error.message });
+  return;
+}
 
+toast.success("Account created", {
+  description: "Check your email to confirm your account.",
+});
+
+navigate({
+  to: "/auth",
+  search: { mode: "login" },
+});
   return (
     <div className="rounded-2xl border bg-card p-6 shadow-card">
       <h1 className="text-xl font-semibold tracking-tight">Welcome back</h1>

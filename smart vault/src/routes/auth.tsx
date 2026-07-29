@@ -189,7 +189,9 @@ function LoginForm({ redirect }: { redirect?: string }) {
     const { error } = await supabase.auth.signInWithPassword(parsed.data);
 setBusy(false);
 if (error) {
-  toast.error("Couldn't create account", { description: error.message });
+  toast.error("Login failed", {
+    description: error.message,
+  });
   return;
 }
 
